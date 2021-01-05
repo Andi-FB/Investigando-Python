@@ -5,25 +5,15 @@ from BalanceError import BalanceError
 
 class DepositAccount(Account):
 
-    @property
-    def account_number(self):
-        return self._account_number
-
-    @property
-    def owner_name(self):
-        return self._owner_name
-
-    @property
-    def balance(self):
-        return self._balance
-
     def deposit(self, balance):
+        print('in Deposit Account')
         if balance > 0:
             self._balance += balance
         else:
             raise AmountError(balance)
 
     def withdraw(self, balance):
+        print('in Deposit Account')
         if self._balance >= balance:
             self._balance -= balance
         else:

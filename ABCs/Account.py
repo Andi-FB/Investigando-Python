@@ -19,24 +19,20 @@ class Account(metaclass=ABCMeta):
     # Added the account_number property just to write a setter too
 
     @property
-    @abstractmethod
     def account_number(self):
-        pass
+        return self._account_number
 
     @account_number.setter
-    @abstractmethod
     def account_number(self, acc_number):
-        pass
+        self._account_number = acc_number
 
     @property
-    @abstractmethod
     def owner_name(self):
-        pass
+        return self._owner_name
 
     @property
-    @abstractmethod
     def balance(self):
-        pass
+        return self._balance
 
     @abstractmethod
     def deposit(self, balance):

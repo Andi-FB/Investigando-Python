@@ -15,23 +15,12 @@ should not reduce the balance instead it should print out a warning message.
 
 class CurrentAccount(Account):
 
-    @property
-    def owner_name(self):
-        return self._owner_name
-
-    @property
-    def balance(self):
-        return self._balance
-
     def deposit(self, balance):
+        print('in Current Account')
         if balance > 0:
             self._balance += balance
         else:
             raise AmountError(balance)
-
-    @property
-    def account_number(self):
-        return self._account_number
 
     def __init__(self, account_number, owner_name, balance, overdraft_limit):
         super().__init__(account_number, owner_name, balance)
@@ -49,6 +38,7 @@ class CurrentAccount(Account):
         self._overdraft_limit = new_limit
 
     def withdraw(self, amount):
+        print('in Current Account')
         if self.balance + self.overdraft_limit < amount:
             raise BalanceError(amount, self)
         else:

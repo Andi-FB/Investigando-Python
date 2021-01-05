@@ -8,25 +8,16 @@ can hold a string such as ‘safe’ or ‘high risk’.
 
 
 class InvestmentAccount(Account):
-    @property
-    def account_number(self):
-        return self._account_number
-
-    @property
-    def owner_name(self):
-        return self._owner_name
-
-    @property
-    def balance(self):
-        return self._balance
 
     def deposit(self, balance):
+        print('in Investment Account')
         if balance > 0:
             self._balance += balance
         else:
             raise AmountError(balance)
 
     def withdraw(self, balance):
+        print('in Investment Account')
         if self._balance >= balance:
             self._balance -= balance
         else:
