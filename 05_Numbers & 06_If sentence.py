@@ -27,6 +27,7 @@ while not input_ok:
     kilometres = input('Enter the # of Km you want to convert: ')
     if kilometres.isnumeric(): #Already checks if number is greater than 0 (It doesn´t work for negative numbers)
         kilometres = int(kilometres)
+        input_ok = True
 
 print(kilometres)
 km_to_miles = kilometres / 0.6214

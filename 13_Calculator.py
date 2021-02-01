@@ -16,7 +16,7 @@ def multiply(number1, number2):
 
 def print_menu():
     print('\t1. Add')
-    print('\t2. Substract')
+    print('\t2. Subtract')
     print('\t3. Multiply')
     print('\t4. Divide')
 
@@ -55,7 +55,7 @@ def main():
     stop = False
     while not stop:
         print_menu()
-        operation = validate_inp('Select choice:', valid_operation, int)
+        operation = validate_inp('Select choice from 1 to 4:', valid_operation, int)
         number1 = validate_inp('Enter the first operand. Must be a number: ', is_numeric, float)
         number2 = validate_inp('Enter the second operand. Must be a number: ', is_numeric, float)
         func = get_operation(operation)
