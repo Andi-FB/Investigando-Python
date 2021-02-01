@@ -3,13 +3,21 @@ import random
 random_number = random.randint(0, 10)
 
 
+def validate_in():
+    input_ok = False
+    while not input_ok:
+        user_in = input("Try a number from 0 to 10")
+        if user_in.isnumeric():
+            return user_in
+
+
 def play():
     number_of_tries = 0
     while number_of_tries < 3:
-        user_in = int(input('Try a number from 0 to 10'))
+        user_in = validate_in()
         if random_number == user_in:
             print('That´s correct you won!')
-            number_of_tries = 3
+            return
         elif random_number < user_in:
             print('Lower!')
             number_of_tries += 1
@@ -23,9 +31,14 @@ def play():
             number_of_tries += 1
 
 
-play()
-print('The number was {0}'.format(random_number))
-wantsToPlayAgain = input('Want to play again? Y/N')
+# This is not really recommended in python because of def keyword
+# def welcome: print("Welcome")
+# the name of the resulting function object is specifically 'welcome' instead of the generic '<lambda>'
+# But lambda functions are quite practical e.g. to define a sorting function
+welcome = lambda: print('Welcome!')
+
+welcome()
+wantsToPlayAgain = 'Y'
 while wantsToPlayAgain.upper() == 'Y':
     play()
     wantsToPlayAgain = input('Want to play again? Y/N')
